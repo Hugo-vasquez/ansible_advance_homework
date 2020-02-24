@@ -1,10 +1,4 @@
----
-
-# tasks file for osp.servers
-- name: Create new server instances and attaches them a network and passes metadata to the instance
-
-
-- name: Add floating IP to Servers
-   
-
-- name: Wait for server to be available
+- name: Create frontend instance
+  include_tasks:
+    file: crinstances.yml
+  with_items: "{{ osp_servers|dict2items }}"
